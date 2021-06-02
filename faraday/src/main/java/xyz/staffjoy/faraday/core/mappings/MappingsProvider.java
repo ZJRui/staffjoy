@@ -14,6 +14,9 @@ import java.util.stream.Collectors;
 
 import static org.springframework.util.CollectionUtils.isEmpty;
 
+/**
+这是一个抽象类
+**/
 public abstract class MappingsProvider {
 
     private static final ILogger log = SLoggerFactory.getLogger(MappingsProvider.class);
@@ -36,6 +39,9 @@ public abstract class MappingsProvider {
         this.httpClientProvider = httpClientProvider;
     }
 
+    /**
+    传入主机头解析出对应的映射
+    **/
     public MappingProperties resolveMapping(String originHost, HttpServletRequest request) {
         if (shouldUpdateMappings(request)) {
             updateMappings();
