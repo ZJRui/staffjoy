@@ -17,6 +17,7 @@ public class HttpClientProvider {
     protected Map<String, RestTemplate> httpClients = new HashMap<>();
 
     public void updateHttpClients(List<MappingProperties> mappings) {
+       // 首先根据主机头得到MappingProperties，然后根据mapperProperties创建resetTemplate。
         httpClients = mappings.stream().collect(toMap(MappingProperties::getName, this::createRestTemplate));
     }
 
